@@ -1,4 +1,6 @@
+"use client";
 import Image from "next/image";
+import Dropzone from "react-dropzone";
 
 export default function Home() {
   return (
@@ -14,7 +16,16 @@ export default function Home() {
        /* Dropzone */
        }
           <div className="w-full text-center border-4 border-gray-500 border-dashed rounded-md cursor-pointer mb-2 text-gray-500">
-           Dropzone will be here
+          <Dropzone onDrop={(acceptedFiles) => console.log(acceptedFiles)}>
+  {({ getRootProps, getInputProps }) => (
+    <section>
+      <div {...getRootProps()}>
+        <input {...getInputProps()} />
+        <p>Drag 'n' drop some files here, or click to select files</p>
+      </div>
+    </section>
+  )}
+</Dropzone>
           </div>
 
         {
